@@ -87,7 +87,7 @@ AddRecipe("yurik_camera",
 
 AddRecipe("yurikbattery", 
     { GLOBAL.Ingredient("potato", 1), GLOBAL.Ingredient("goldnugget", 1)}, 
-    yuriktab, TECH.NONE, nil, nil, nil, 5, "yurik_builder", 
+    yuriktab, TECH.NONE, nil, nil, nil, 2, "yurik_builder",
     "images/inventoryimages/yurikbattery.xml", "yurikbattery.tex" )
 
 AddRecipe("yurik_ammo14", {GLOBAL.Ingredient("cutgrass", 3)}, yuriktab, TECH.NONE, nil, nil, nil, 30,

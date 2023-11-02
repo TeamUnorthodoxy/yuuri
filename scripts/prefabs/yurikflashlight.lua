@@ -13,7 +13,7 @@ local prefabs =
     "flashlight",
 }
 
-local function fuelupdate(inst)
+--[[local function fuelupdate(inst)
     if inst._light ~= nil then
         local fuelpercent = inst.components.fueled:GetPercent()
         inst._light.Light:SetIntensity(Lerp(.4, .6, fuelpercent))
@@ -21,7 +21,7 @@ local function fuelupdate(inst)
         inst._light.Light:SetFalloff(.9)
     end
 end
-
+]]
 local function onremovelight(light)
     light._lantern._light = nil
 end
@@ -137,25 +137,25 @@ local function onunequip(inst, owner)
     end
 end
 
-local function nofuel(inst)
-    if inst.components.equippable:IsEquipped() and inst.components.inventoryitem.owner ~= nil then
-        local data =
-        {
-            prefab = inst.prefab,
-            equipslot = inst.components.equippable.equipslot,
-        }
-        turnoff(inst)
-        inst.components.inventoryitem.owner:PushEvent("torchranout", data)
-    else
-        turnoff(inst)
-    end
-end
+--local function nofuel(inst)
+--    if inst.components.equippable:IsEquipped() and inst.components.inventoryitem.owner ~= nil then
+--        local data =
+--        {
+--            prefab = inst.prefab,
+--            equipslot = inst.components.equippable.equipslot,
+--        }
+--        turnoff(inst)
+--        inst.components.inventoryitem.owner:PushEvent("torchranout", data)
+--    else
+--        turnoff(inst)
+--    end
+--end
 
-local function ontakefuel(inst)
-    if inst.components.equippable:IsEquipped() then
-        turnon(inst)
-    end
-end
+--local function ontakefuel(inst)
+--    if inst.components.equippable:IsEquipped() then
+--        turnon(inst)
+--    end
+--end
 
 --------------------------------------------------------------------------
 
@@ -234,7 +234,7 @@ local function fn()
     inst:AddComponent("equippable")
     inst.components.equippable.restrictedtag = "yurri"
 
-    inst:AddComponent("fueled")
+    --inst:AddComponent("fueled")
 
     inst:AddComponent("machine")
     inst.components.machine.turnonfn = turnon

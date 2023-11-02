@@ -62,7 +62,7 @@ local function turnon(inst)
 
         inst.components.machine.ison = true
         inst:PushEvent("lantern_on")
-    end
+    --end
 end
 
 local function turnoff(inst)
@@ -104,7 +104,7 @@ local function onequip(inst, owner)
     local light = inst.entity:AddLight()
     light:SetFalloff(.6)
     light:SetIntensity(.9)
-    light:SetRadius(1)
+    light:SetRadius(9)
     light:Enable(true)
     light:SetColour(35/255, 35/255, 206/255)	
     inst.AnimState:SetBloomEffectHandle( "shaders/anim_haunted.ksh" )

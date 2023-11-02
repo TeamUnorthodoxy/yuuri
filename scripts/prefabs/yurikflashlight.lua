@@ -241,14 +241,14 @@ local function fn()
     inst.components.machine.turnofffn = turnoff
     inst.components.machine.cooldowntime = 0
 
-    inst.components.fueled.fueltype = FUELTYPE.CAVE
-    
-    inst.components.fueled:InitializeFuelLevel(TUNING.LANTERN_LIGHTTIME*2)
-    inst.components.fueled:SetDepletedFn(nofuel)
-    inst.components.fueled:SetUpdateFn(fuelupdate)
-    inst.components.fueled:SetTakeFuelFn(ontakefuel)
-    inst.components.fueled:SetFirstPeriod(TUNING.TURNON_FUELED_CONSUMPTION, TUNING.TURNON_FULL_FUELED_CONSUMPTION)
-    inst.components.fueled.accepting = true
+    --inst.components.fueled.fueltype = FUELTYPE.CAVE
+    --
+    --inst.components.fueled:InitializeFuelLevel(TUNING.LANTERN_LIGHTTIME*2)
+    --inst.components.fueled:SetDepletedFn(nofuel)
+    --inst.components.fueled:SetUpdateFn(fuelupdate)
+    --inst.components.fueled:SetTakeFuelFn(ontakefuel)
+    --inst.components.fueled:SetFirstPeriod(TUNING.TURNON_FUELED_CONSUMPTION, TUNING.TURNON_FULL_FUELED_CONSUMPTION)
+    --inst.components.fueled.accepting = true
 
     inst._light = nil
 

@@ -57,7 +57,6 @@ local function turnon(inst)
 
         end
         inst._light.entity:SetParent((owner or inst).entity)
-        inst._light.Light:SetRadius(Lerp(3, 5, nil))
 
         inst.AnimState:PlayAnimation("idle")
 

@@ -109,6 +109,8 @@ local function onequip(inst, owner)
     light:SetColour(35/255, 35/255, 206/255)	
     inst.AnimState:SetBloomEffectHandle( "shaders/anim_haunted.ksh" )
 
+    turnon(inst)
+
     --if inst.components.fueled:IsEmpty() then
     --
     --else
@@ -182,7 +184,6 @@ local function flashlightfn()
     inst:AddTag("FX")
 
     inst.Light:SetColour(100 / 255, 100 / 255, 150 / 255)
-    inst.light:SetRadius(9)
 
     inst.entity:SetPristine()
 

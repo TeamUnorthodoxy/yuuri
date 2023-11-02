@@ -182,8 +182,14 @@ local function flashlightfn()
     inst.entity:AddNetwork()
 
     inst:AddTag("FX")
-
+    local light2 = inst.entity:AddLight()
+    light2:SetFalloff(.6)
+    light2:SetIntensity(.9)
+    light2:SetRadius(9)
+    light2:Enable(true)
+    light2:SetColour(35/255, 35/255, 206/255)
   --  inst.Light:SetColour(100 / 255, 100 / 255, 150 / 255)
+
 
     inst.entity:SetPristine()
 
@@ -214,13 +220,6 @@ local function fn()
     inst.AnimState:PlayAnimation("idle")
 
     inst:AddTag("light")
-
-    local light2 = inst.entity:AddLight()
-    light2:SetFalloff(.6)
-    light2:SetIntensity(.9)
-    light2:SetRadius(1)
-    light2:Enable(true)
-    light2:SetColour(150/255, 150/255, 255/255)
 
     MakeInventoryFloatable(inst, "med", 0.2, 0.65)
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0" name="swap_waterballoon">
+        <file id="0" name="swap_waterballoon/swap_waterballoon-0.png" width="83" height="136" pivot_x="0.250904" pivot_y="0.440303"/>
+    </folder>
+    <entity id="0" name="swap_yurikwaterballoon">
+        <animation id="0" name="BUILD" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="25"/>
+                <key id="2" time="50"/>
+                <key id="3" time="76"/>
+                <key id="4" time="100"/>
+                <key id="5" time="125"/>
+                <key id="6" time="150"/>
+                <key id="7" time="175"/>
+                <key id="8" time="200"/>
+                <key id="9" time="225"/>
+                <key id="10" time="250"/>
+                <key id="11" time="275"/>
+                <key id="12" time="300"/>
+                <key id="13" time="325"/>
+                <key id="14" time="351"/>
+                <key id="15" time="376"/>
+                <key id="16" time="401"/>
+                <key id="17" time="426"/>
+                <key id="18" time="451"/>
+                <key id="19" time="476"/>
+                <key id="20" time="501"/>
+                <key id="21" time="526"/>
+                <key id="22" time="551"/>
+                <key id="23" time="576"/>
+                <key id="24" time="601"/>
+                <key id="25" time="626"/>
+                <key id="26" time="651"/>
+                <key id="27" time="676"/>
+                <key id="28" time="701"/>
+                <key id="29" time="726"/>
+                <key id="30" time="751"/>
+                <key id="31" time="776"/>
+                <key id="32" time="801"/>
+                <key id="33" time="826"/>
+                <key id="34" time="851"/>
+                <key id="35" time="876"/>
+                <key id="36" time="901"/>
+                <key id="37" time="926"/>
+                <key id="38" time="951"/>
+                <key id="39" time="976"/>
+                <key id="40" time="1001"/>
+            </mainline>
+            <timeline id="0" name="swap_waterballoon-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="3" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

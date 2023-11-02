@@ -44,8 +44,8 @@ local function starttrackingowner(inst, owner)
 end
 
 local function turnon(inst)
-    if not inst.components.fueled:IsEmpty() then
-        inst.components.fueled:StartConsuming()
+    --if not inst.components.fueled:IsEmpty() then
+        --inst.components.fueled:StartConsuming()
 
         local owner = inst.components.inventoryitem.owner
 
@@ -53,7 +53,7 @@ local function turnon(inst)
             inst._light = SpawnPrefab("flashlight")
             inst._light._lantern = inst
             inst:ListenForEvent("onremove", onremovelight, inst._light)
-            fuelupdate(inst)
+          --  fuelupdate(inst)
 
         end
         inst._light.entity:SetParent((owner or inst).entity)
@@ -68,7 +68,7 @@ end
 local function turnoff(inst)
     stoptrackingowner(inst)
 
-    inst.components.fueled:StopConsuming()
+    --inst.components.fueled:StopConsuming()
 
     if inst._light ~= nil then
         inst._light:Remove()
@@ -109,11 +109,11 @@ local function onequip(inst, owner)
     light:SetColour(35/255, 35/255, 206/255)	
     inst.AnimState:SetBloomEffectHandle( "shaders/anim_haunted.ksh" )
 
-    if inst.components.fueled:IsEmpty() then
-      
-    else
-        turnon(inst)
-    end
+    --if inst.components.fueled:IsEmpty() then
+    --
+    --else
+    --    turnon(inst)
+    --end
 end
 
 local function onunequip(inst, owner)
@@ -130,11 +130,11 @@ local function onunequip(inst, owner)
         starttrackingowner(inst, owner)
     end
 
-    if inst.components.fueled:IsEmpty() then
-      
-    else
-        turnoff(inst)
-    end
+    --if inst.components.fueled:IsEmpty() then
+    --
+    --else
+    --    turnoff(inst)
+    --end
 end
 
 --local function nofuel(inst)

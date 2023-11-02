@@ -187,7 +187,7 @@ local function flashlightfn()
     light2:SetIntensity(.9)
     light2:SetRadius(9)
     light2:Enable(true)
-    light2:SetColour(35/255, 35/255, 206/255)
+    light2:SetColour(100/255, 100/255, 255/255)
   --  inst.Light:SetColour(100 / 255, 100 / 255, 150 / 255)
 
 

@@ -62,7 +62,7 @@ local function turnon(inst)
 
         inst.components.machine.ison = true
         inst:PushEvent("lantern_on")
-    end
+    --end
 end
 
 local function turnoff(inst)

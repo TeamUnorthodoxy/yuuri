@@ -1,6 +1,6 @@
 # yurik
 
-零系列五代女主不来方夕莉。
+零系列五代女主不来方夕莉「Kozukata Yuuri」。
 
 借用了 [Silhh and Arcade 作者的 mod](https://steamcommunity.com/sharedfiles/filedetails/?id=724497366) 基础上更改的 mod，尽可能贴合克雷官方对远程单位的限制而制作，强度略强于饥荒自带角色。 做此 mod 只是单纯的用爱发电行为。
 

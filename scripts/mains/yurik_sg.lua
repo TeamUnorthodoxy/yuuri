@@ -32,7 +32,7 @@ end
 
 local CastAoe_StrFn_Old = ACTIONS.CASTAOE.strfn
 ACTIONS.CASTAOE.strfn = function(act)
-    if act.doer and act.doer:HasTag("yurri") and act.doer._skill:value() and act.invobject and act.invobject.prefab == "yurik_camera" then
+    if act.doer and act.doer:HasTag("yuuri") and act.doer._skill:value() and act.invobject and act.invobject.prefab == "yurik_camera" then
         --print(ThePlayer._skill:value())
         return "YURIK_CAMERA" .. act.doer._skill:value()
     end
@@ -277,7 +277,7 @@ TheInput:AddKeyDownHandler(KEY_Z, function()
     local screen = GLOBAL.TheFrontEnd:GetActiveScreen()
     local IsHUDActive = screen and screen.name == "HUD"
 
-    if player and player:HasTag("yurri") and not player:HasTag("playerghost") and IsHUDActive then
+    if player and player:HasTag("yuuri") and not player:HasTag("playerghost") and IsHUDActive then
         SendModRPCToServer(MOD_RPC["Yurri_Change"]["Yurri_Change"])
     end
 end)
@@ -302,7 +302,7 @@ TheInput:AddKeyDownHandler(KEY_V, function()
     local screen = GLOBAL.TheFrontEnd:GetActiveScreen()
     local IsHUDActive = screen and screen.name == "HUD"
 
-    if player and player:HasTag("yurri") and not player:HasTag("playerghost") and IsHUDActive then
+    if player and player:HasTag("yuuri") and not player:HasTag("playerghost") and IsHUDActive then
         SendModRPCToServer(MOD_RPC["YuuriSpiritTorchRangeChange"]["YuuriSpiritTorchRangeChange"])
     end
 end)

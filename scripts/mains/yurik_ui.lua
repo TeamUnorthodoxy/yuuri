@@ -3,7 +3,7 @@ GLOBAL.setmetatable(env,{__index=function(t,k) return GLOBAL.rawget(GLOBAL,k) en
 local yurik_ui = require("widgets/yurik_ui")
 
 local function AddYurik_Ui(self) 
-  if self.owner and self.owner:HasTag("yurri") then
+  if self.owner and self.owner:HasTag("yuuri") then
     self.yurik_ui = self:AddChild(yurik_ui(self.owner)) 
     
     self.owner:DoTaskInTime(0.5, function()

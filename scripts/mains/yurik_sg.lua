@@ -9,10 +9,10 @@ AddComponentAction("INVENTORY", "weapon", function(inst, doer, actions)
 end)
 
 local CHANGE_EQUIP = Action({ priority = 10, mount_valid = false })
-CHANGE_EQUIP.id = "CHANGE_EQUIP"    --这个操作的id  EQUIPSLOTS.BACK or EQUIPSLOTS.BODY
+CHANGE_EQUIP.id = "CHANGE_EQUIP"    -- 这个操作的 id  EQUIPSLOTS.BACK or EQUIPSLOTS.BODY
 CHANGE_EQUIP.str = "切换"
 CHANGE_EQUIP.fn = function(act)
-    --这个操作执行时进行的功能函数
+    -- 这个操作执行时进行的功能函数
     local obj = act.invobject or act.target
     local doer = act.doer or nil
     if doer and obj and obj.components.equippable:IsEquipped() then
@@ -21,7 +21,7 @@ CHANGE_EQUIP.fn = function(act)
     return true
 end
 
-AddAction(CHANGE_EQUIP) --向游戏注册一个动作
+AddAction(CHANGE_EQUIP) -- 向游戏注册一个动作
 
 AddStategraphActionHandler("wilson", ActionHandler(ACTIONS.CHANGE_EQUIP, "doshortaction"))
 AddStategraphActionHandler("wilson_client", ActionHandler(ACTIONS.CHANGE_EQUIP, "doshortaction"))
@@ -281,7 +281,6 @@ TheInput:AddKeyDownHandler(KEY_Z, function()
         SendModRPCToServer(MOD_RPC["Yurri_Change"]["Yurri_Change"])
     end
 end)
-
 
 
 -- 灵石灯修改攻击范围

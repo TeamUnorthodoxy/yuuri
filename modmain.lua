@@ -138,7 +138,7 @@ TUNING[modNameUp .. "_HUNGER"] = 150
 TUNING[modNameUp .. "_SANITY"] = 250
 
 -- The character's name as appears in-game 
-STRINGS.NAMES.YURIK = "Yuri"
+STRINGS.NAMES.YURIK = "Yuuri"
 
 AddMinimapAtlas("images/map_icons/yurik.xml")
 

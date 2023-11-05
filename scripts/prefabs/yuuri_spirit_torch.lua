@@ -42,7 +42,6 @@ local assets = {
 }
 
 local prefabs = {
-    "yuuri_spirit_torch",
     "flashlight"
 }
 
@@ -211,17 +210,6 @@ local function OnUnEquip(inst, owner)
     --end
 end
 
-local function OnTimerDone(inst, data)
-    if data.name == "repair" then
-        local finiteuses = inst.components.finiteuses
-        if finiteuses:GetUses() ~= finiteuses.total then
-            finiteuses:Repair(1)
-        end
-        -- 重启计时器
-        inst.components.timer:StartTimer("repair", 5)
-    end
-end
-
 local function SetupComponents(inst)
     inst:AddComponent("equippable")
     inst.components.equippable.restrictedtag = "yuuri"
@@ -235,54 +223,42 @@ local function DisableComponents(inst)
     inst:RemoveComponent("weapon")
 end
 
-local FLOAT_SCALE_BROKEN = { 1, 0.7, 1 }
-local FLOAT_SCALE = { 1, 0.4, 1 }
-
-local function OnIsBrokenDirty(inst)
-    if inst.isbroken:value() then
-        inst.components.floater:SetSize("small")
-        inst.components.floater:SetVerticalOffset(0.05)
-        inst.components.floater:SetScale(FLOAT_SCALE_BROKEN)
-    else
-        inst.components.floater:SetSize("med")
-        inst.components.floater:SetVerticalOffset(0.05)
-        inst.components.floater:SetScale(FLOAT_SCALE)
+local function RepairWeapon(inst)
+    if inst.components.finiteuses then
+        local finiteuses = inst.components.finiteuses
+        if finiteuses:GetUses() == 0 then
+            SetupComponents(inst)
+        end
+        if finiteuses:GetUses() ~= finiteuses.total then
+            finiteuses:Repair(1)
+        end
     end
 end
 
-local SWAP_DATA_BROKEN = { bank = "yuuri_spirit_torch", anim = "broken" }
-local SWAP_DATA = { sym_build = "yuuri_spirit_torch", sym_name = "swap_yuuri_spirit_torch" }
+local function OnFinished(inst)
+    local owner = inst.components.inventoryitem.owner
+    if owner then
+        --if owner.components and owner.components.inventory then
+        --    -- 背包还有空间, 放背包
+        --    owner.components.inventory:DropItem(inst)
+        --    owner.components.inventory:GiveItem(inst)
+        --end
 
-local function SetIsBroken(inst, isbroken)
-    if isbroken then
-        inst.components.floater:SetBankSwapOnFloat(false, nil, SWAP_DATA_BROKEN)
-    else
-        inst.components.floater:SetBankSwapOnFloat(true, -17.5, SWAP_DATA)
+        -- 背包还有空间, 放背包
+        if inst.components.equippable ~= nil and inst.components.equippable:IsEquipped() then
+            local owner = inst.components.inventoryitem.owner
+            if owner ~= nil and owner.components.inventory ~= nil then
+                local item = owner.components.inventory:Unequip(inst.components.equippable.equipslot)
+                if item ~= nil then
+                    owner.components.inventory:GiveItem(item, nil, owner:GetPosition())
+                end
+            end
+        end
     end
-    inst.isbroken:set(isbroken)
-    OnIsBrokenDirty(inst)
-end
-
-local function OnBroken(inst)
-    if inst.components.equippable ~= nil then
-        DisableComponents(inst)
-        inst.AnimState:PlayAnimation("broken")
-        SetIsBroken(inst, true)
-        inst:AddTag("broken")
-        inst.components.inspectable.nameoverride = "BROKEN_FORGEDITEM"
-    end
-end
-
-local function OnRepaired(inst)
-    if inst.components.equippable == nil then
-        SetupComponents(inst)
-        inst.blade1.AnimState:SetFrame(0)
-        inst.blade2.AnimState:SetFrame(0)
-        inst.AnimState:PlayAnimation("idle", true)
-        SetIsBroken(inst, false)
-        inst:RemoveTag("broken")
-        inst.components.inspectable.nameoverride = nil
-    end
+    -- 不能再装备
+    DisableComponents(inst)
+    -- 提示坏了
+    inst.components.inspectable.nameoverride = "BROKEN_FORGEDITEM"
 end
 
 local function fn()
@@ -310,7 +286,6 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
-    inst.persists = false
 
     inst.Change = OnChangeAtk
 
@@ -343,12 +318,9 @@ local function fn()
     local finiteuses = inst:AddComponent("finiteuses")
     finiteuses:SetMaxUses(TUNING.NIGHTSWORD_USES)
     finiteuses:SetUses(TUNING.NIGHTSWORD_USES)
+    finiteuses:SetOnFinished(OnFinished)
     -- 定时修复
-    inst:AddComponent("timer")
-    inst.components.timer:StartTimer("repair", 5)
-    inst:ListenForEvent("timerdone", OnTimerDone)
-    -- 破损不消失
-    MakeForgeRepairable(inst, nil, OnBroken, OnRepaired)
+    inst:DoPeriodicTask(5, RepairWeapon)
 
     -- 灯
     inst._light = nil

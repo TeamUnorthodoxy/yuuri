@@ -65,7 +65,7 @@ end
 local common_postinit = function(inst)
     -- 潮湿不拖手（搬运）
     inst:AddTag("stronggrip")
-    inst:AddTag("yurri")
+    inst:AddTag("yuuri")
     -- Minimap icon
     inst.MiniMapEntity:SetIcon("yurik.tex")
     inst:AddTag("yurik_builder")

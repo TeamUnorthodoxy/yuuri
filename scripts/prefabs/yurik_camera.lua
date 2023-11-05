@@ -270,7 +270,7 @@ local function fn()
     inst.components.inventoryitem.keepondeath = true
     
     inst:AddComponent("equippable")
-    inst.components.equippable.restrictedtag = "yurri"
+    inst.components.equippable.restrictedtag = "yuuri"
     inst.components.equippable:SetOnEquip(OnEquip)
     inst.components.equippable:SetOnUnequip(OnUnequip)
 

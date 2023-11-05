@@ -29,12 +29,16 @@
 ---
 
 local assets = {
-    Asset("ANIM", "anim/yurikflashlight.zip"),
-    Asset("ANIM", "anim/swap_yurikflashlight.zip"),
-
-    Asset("ATLAS", "images/inventoryimages/yurikflashlight.xml"),
-    Asset("IMAGE", "images/inventoryimages/yurikflashlight.tex"),
-    Asset("ATLAS_BUILD", "images/inventoryimages/yurikflashlight.xml", 256)
+    Asset("ANIM", "anim/yuuri_spirit_torch.zip"),
+    Asset("ANIM", "anim/swap_yuuri_spirit_torch.zip"),
+    -- 近战模式武器图标
+    Asset("ATLAS", "images/inventoryimages/yuuri_spirit_torch.xml"),
+    Asset("IMAGE", "images/inventoryimages/yuuri_spirit_torch.tex"),
+    Asset("ATLAS_BUILD", "images/inventoryimages/yuuri_spirit_torch.xml", 256),
+    -- 远程模式武器图标
+    Asset("ATLAS", "images/inventoryimages/yuuri_spirit_torch2.xml"),
+    Asset("IMAGE", "images/inventoryimages/yuuri_spirit_torch2.tex"),
+    Asset("ATLAS_BUILD", "images/inventoryimages/yuuri_spirit_torch2.xml", 256),
 }
 
 local prefabs = {
@@ -107,13 +111,13 @@ local function OnDropped(inst)
     TurnOn(inst)
 end
 
--- 定义一个 table 存储近战攻击数值，范围和伤害
+-- 近战攻击数值，范围和伤害
 meleeAtk = {
     range = 2,
     damage = 85
 }
 
--- 定义一个 table 存储远程攻击数值，范围和伤害
+-- 远程攻击数值，范围和伤害
 rangeAtk = {
     range = 6,
     damage = 34
@@ -142,13 +146,15 @@ end
 local function OnChangeAtk(inst)
     if inst ~= nil then
         if inst.components.weapon.damage == meleeAtk.damage then
+            -- 近战切远程
             CreateNewWeapon(inst, rangeAtk.damage, rangeAtk.range)
-            inst.components.inventoryitem.atlasname = "images/inventoryimages/yurik_camera.xml"
-            inst.components.inventoryitem:ChangeImageName("yurik_camera")
+            inst.components.inventoryitem.atlasname = "images/inventoryimages/yuuri_spirit_torch2.xml"
+            inst.components.inventoryitem:ChangeImageName("yuuri_spirit_torch2")
         else
+            -- 远程切近战
             CreateNewWeapon(inst, meleeAtk.damage, meleeAtk.range)
-            inst.components.inventoryitem.atlasname = "images/inventoryimages/yurikflashlight.xml"
-            inst.components.inventoryitem:ChangeImageName("yurikflashlight")
+            inst.components.inventoryitem.atlasname = "images/inventoryimages/yuuri_spirit_torch.xml"
+            inst.components.inventoryitem:ChangeImageName("yuuri_spirit_torch")
         end
     end
 end
@@ -157,14 +163,14 @@ local function OnEquip(inst, owner)
     --local skin_build = inst:GetSkinBuild()
     --if skin_build ~= nil then
     --    owner:PushEvent("equipskinneditem", inst:GetSkinName())
-    --    owner.AnimState:OverrideItemSkinSymbol("swap_object", skin_build, "swap_yurikflashlight", inst.GUID, "swap_yurikflashlight")
+    --    owner.AnimState:OverrideItemSkinSymbol("swap_object", skin_build, "swap_yuuri_spirit_torch", inst.GUID, "swap_yuuri_spirit_torch")
     --else
-    --    owner.AnimState:OverrideSymbol("swap_object", "swap_yurikflashlight", "swap_yurikflashlight")
+    --    owner.AnimState:OverrideSymbol("swap_object", "swap_yuuri_spirit_torch", "swap_yuuri_spirit_torch")
     --end
     --owner.AnimState:Show("ARM_carry")
     --owner.AnimState:Hide("ARM_normal")
 
-    owner.AnimState:OverrideSymbol("swap_object", "swap_yurikflashlight", "swap_yurikflashlight")
+    owner.AnimState:OverrideSymbol("swap_object", "swap_yuuri_spirit_torch", "swap_yuuri_spirit_torch")
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
 
@@ -291,8 +297,8 @@ local function fn()
 
     --inst.AnimState:SetBank("yuuri_spirit_torch")
     --inst.AnimState:SetBuild("yuuri_spirit_torch")
-    inst.AnimState:SetBank("yurikflashlight")
-    inst.AnimState:SetBuild("yurikflashlight")
+    inst.AnimState:SetBank("yuuri_spirit_torch")
+    inst.AnimState:SetBuild("yuuri_spirit_torch")
     inst.AnimState:PlayAnimation("idle")
 
     inst:AddTag("light")
@@ -310,8 +316,8 @@ local function fn()
 
     inst:AddComponent("inspectable")
     inst:AddComponent("inventoryitem")
-    inst.components.inventoryitem.imagename = "yurikflashlight"
-    inst.components.inventoryitem.atlasname = "images/inventoryimages/yurikflashlight.xml"
+    inst.components.inventoryitem.imagename = "yuuri_spirit_torch"
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/yuuri_spirit_torch.xml"
     inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
     inst.components.inventoryitem:SetOnPutInInventoryFn(TurnOff)
     inst.components.inventoryitem.keepondeath = true

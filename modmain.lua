@@ -95,8 +95,8 @@ AddRecipe("yurikflashlight",
 
 AddRecipe("yuuri_spirit_torch",
         { GLOBAL.Ingredient("moonglass", 3), GLOBAL.Ingredient("moonrocknugget", 2), GLOBAL.Ingredient("dragon_scales", 1) },
-        yuriktab, TECH.NONE, nil, nil, nil, nil, "yurik_builder", "images/inventoryimages/yurikflashlight.xml",
-        "yurikflashlight.tex")
+        yuriktab, TECH.NONE, nil, nil, nil, nil, "yurik_builder", "images/inventoryimages/yuuri_spirit_torch.xml",
+        "yuuri_spirit_torch.tex")
 
 AddRecipe("yurik_camera",
         { GLOBAL.Ingredient("nightmarefuel", 4), GLOBAL.Ingredient("redgem", 1), GLOBAL.Ingredient("goldnugget", 2) },

@@ -10,6 +10,7 @@
 
 感谢 LiLittleCat、千简提供的帮助和班花大佬的技术指点！
 
+mod地址：https://steamcommunity.com/sharedfiles/filedetails/?id=2610166123
 ——————————————————————————
 
 ## Changelog

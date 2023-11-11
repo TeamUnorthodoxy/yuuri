@@ -1,16 +1,16 @@
-# yurik
+# Yuuri
 
 零系列五代女主不来方夕莉「Kozukata Yuuri」。
 
-借用了 [Silhh and Arcade 作者的 mod](https://steamcommunity.com/sharedfiles/filedetails/?id=724497366) 基础上更改的 mod，尽可能贴合克雷官方对远程单位的限制而制作，强度略强于饥荒自带角色。 做此 mod 只是单纯的用爱发电行为。
+在 [Silhh and Arcade 的 mod](https://steamcommunity.com/sharedfiles/filedetails/?id=724497366) 基础上更改的 mod，尽可能贴合克雷官方对远程单位的限制而制作，强度略强于饥荒自带角色。 做此 mod 只是单纯的用爱发电行为。
 
 已完成相机强化镜头技能，伤害技能取决于相机内的胶卷，点击技能图标右键释放。更改了拍照动作。右键点击相机可切换相机的 AOE 攻击与单体攻击模式。
 
 注：强化镜头不能多个同时使用，除非你想手动掉脑残。
 
-感谢 LiLittleCat、千简提供的帮助和班花大佬的技术指点！
 
-mod地址：https://steamcommunity.com/sharedfiles/filedetails/?id=2610166123
+mod 地址：https://steamcommunity.com/sharedfiles/filedetails/?id=2610166123
+
 ——————————————————————————
 
 ## Changelog

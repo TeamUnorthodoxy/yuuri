@@ -272,7 +272,7 @@ end
 
 AddModRPCHandler("Yurri_Change", "Yurri_Change", Yurri_Change)
 
-TheInput:AddKeyDownHandler(KEY_Z, function()
+TheInput:AddKeyDownHandler(KEY_V, function()
     local player = ThePlayer
     local screen = GLOBAL.TheFrontEnd:GetActiveScreen()
     local IsHUDActive = screen and screen.name == "HUD"

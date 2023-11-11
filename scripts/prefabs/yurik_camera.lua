@@ -130,6 +130,9 @@ local function OnSpell(inst, doer, pos)
                    ImpactFx(inst, v)
 
                    local damage = item_proj.components.weapon:GetDamage(doer, v) or 30
+                   if inst:HasTag("AreaAtk") then
+                        damage = damage * 2;
+                   end
                    local resultDamage = damage
                    * (self.damagemultiplier or 1)
                    * self.externaldamagemultipliers:Get()
@@ -143,6 +146,9 @@ local function OnSpell(inst, doer, pos)
                    ImpactFx(inst, v)
 
                    local damage = item_proj.components.weapon:GetDamage(doer, v) or 30
+                   if inst:HasTag("AreaAtk") then
+                       damage = damage * 2;
+                   end
                    local resultDamage = damage
                    * (self.damagemultiplier or 1)
                    * self.externaldamagemultipliers:Get()
@@ -179,6 +185,9 @@ local function OnSpell(inst, doer, pos)
                if item and v and v.components.combat and not v:HasTag("player") then
                if item and item_proj and item_proj.components.weapon and v and v.components.combat then
                    local damage = item_proj.components.weapon:GetDamage(doer, v) or 30
+                   if inst:HasTag("AreaAtk") then
+                       damage = damage * 2;
+                   end
                    local resultDamage = damage
                    * (self.damagemultiplier or 1)
                    * self.externaldamagemultipliers:Get()
